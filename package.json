@@ -1,0 +1,31 @@
+{
+  "name": "arkansas-rmt-demo",
+  "author": {
+	"name": "Morris Jobke",
+	"email": "morris.jobke@gmail.com"
+  },
+  "contributors": [
+	{
+	  "name": "Markus Ast",
+	  "email": "npm.m@rkusa.st"
+	}
+  ],
+  "version": "0.1.0",
+  "private": true,
+  "main": "lib/",
+  "homepage": "https://github.com/kabum/arkansas-rmt-demo",
+  "scripts": {
+	"test": "mocha"
+  },
+  "dependencies": {
+	"arkansas": "git+ssh://git@github.com:rkusa/arkansas.git",
+	"arkansas-rmt": "git+https://github.com/kabum/arkansas-rmt.git",
+	"less-middleware": "*",
+	"bootstrap": "git://github.com/twitter/bootstrap.git#v2.2.2"
+  },
+  "bugs": "https://github.com/kabum/arkansas-rmt-demo/issues",
+  "repository" : {
+	"type": "git",
+	"url": "git://github.com/kabum/arkansas-rmt-demo.git"
+  }
+}
