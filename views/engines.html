@@ -1,0 +1,30 @@
+@area('main', function() {
+  <div class="row">
+    <div class="well">
+      <form class="form-inline" style="margin:0;" method="post" action="">
+        <input type="text" placeholder="Leistung" name="power" />&nbsp;
+        <button type="submit" class="btn">Erstellen</button>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Leistung</th>
+          </tr>
+        </thead>
+        <tbody>
+          @collection(engines, function(engine) {
+            <tr>
+              <td>@engine.id</td>
+              <td>@engine.power</td>
+            </tr>
+          })
+        </tbody>
+      </table>
+    </div>
+  </div>
+})
