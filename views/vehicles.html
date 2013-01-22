@@ -1,0 +1,43 @@
+@area('main', function() {
+  <div class="row">
+    <div class="well">
+      <form class="form-inline" style="margin:0;" method="post" action="">
+        <input type="text" placeholder="Hersteller" name="manufacturer" />&nbsp;
+        <label for="engine">Motor:&nbsp;</label>
+        <select name="engine" id="engine" class="input-small">
+          @engines.forEach(function(engine) {
+            <option value="@engine.id">@engine.id</option>
+          })
+        </select>&nbsp;
+        <button type="submit" class="btn">Erstellen</button>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span12">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th rowspan="2">Id</th>
+            <th rowspan="2">Hersteller</th>
+            <th colspan="2">Rad</th>
+          </tr>
+          <tr>
+            <th>Id</th>
+            <th>Leistung</th>
+          </tr>
+        </thead>
+        <tbody>
+          @collection(vehicles, function(vehicle) {
+            <tr>
+              <td>@vehicle.id</td>
+              <td>@vehicle.manufacturer</td>
+              <td>@vehicle.engine.id</td>
+              <td>@vehicle.engine.power</td>
+            </tr>
+          })
+        </tbody>
+      </table>
+    </div>
+  </div>
+})
