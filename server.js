@@ -20,11 +20,13 @@ app.configure('development', function() {
   app.use(express.logger('dev'))
 })
 
-arkansas.area(__dirname + '/app', { layout: 'layout' })
-var server = module.exports = require('http').createServer(app)
+require('arkansas-rmt').boostrap(function() {
+  arkansas.area(__dirname + '/app', { layout: 'layout' })
+  var server = module.exports = require('http').createServer(app)
 
-setTimeout(function() {
-  server.listen(app.get('port'), function() {
-    console.log("Express server listening on port " + app.get('port'))
+  arkansas.ready(function() {
+    server.listen(app.get('port'), function() {
+      console.log("Express server listening on port " + app.get('port'))
+    })
   })
-}, 1000)
+})

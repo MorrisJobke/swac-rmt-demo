@@ -1,31 +1,32 @@
 {
-  "name": "arkansas-rmt-demo",
   "author": {
-	"name": "Morris Jobke",
-	"email": "morris.jobke@gmail.com"
-  },
+    "email": "morris.jobke@gmail.com", 
+    "name": "Morris Jobke"
+  }, 
+  "bugs": "https://github.com/kabum/arkansas-rmt-demo/issues", 
   "contributors": [
-	{
-	  "name": "Markus Ast",
-	  "email": "npm.m@rkusa.st"
-	}
-  ],
-  "version": "0.1.0",
-  "private": true,
-  "main": "lib/",
-  "homepage": "https://github.com/kabum/arkansas-rmt-demo",
-  "scripts": {
-	"test": "mocha"
-  },
+    {
+      "email": "npm.m@rkusa.st", 
+      "name": "Markus Ast"
+    }
+  ], 
   "dependencies": {
-	"arkansas": "git+ssh://git@github.com:rkusa/arkansas.git",
-	"arkansas-rmt": "git+https://github.com/kabum/arkansas-rmt.git",
-	"less-middleware": "*",
-	"bootstrap": "git://github.com/twitter/bootstrap.git#v2.2.2"
-  },
-  "bugs": "https://github.com/kabum/arkansas-rmt-demo/issues",
-  "repository" : {
-	"type": "git",
-	"url": "git://github.com/kabum/arkansas-rmt-demo.git"
-  }
+    "arkansas": "git+ssh://git@github.com:rkusa/arkansas.git", 
+    "arkansas-rmt": "git+https://github.com/kabum/arkansas-rmt.git", 
+    "bootstrap": "git://github.com/twitter/bootstrap.git#v2.2.2", 
+    "less-middleware": "*",
+    "async": "0.1.x"
+  }, 
+  "homepage": "https://github.com/kabum/arkansas-rmt-demo", 
+  "main": "lib/", 
+  "name": "arkansas-rmt-demo", 
+  "private": true, 
+  "repository": {
+    "type": "git", 
+    "url": "git://github.com/kabum/arkansas-rmt-demo.git"
+  }, 
+  "scripts": {
+    "test": "mocha"
+  }, 
+  "version": "0.1.0"
 }

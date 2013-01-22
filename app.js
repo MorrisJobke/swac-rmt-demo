@@ -45,7 +45,6 @@ var cars = root.get('/cars', function(app, done) {
   app.register('cars', arkansas.Observable.Array(Car))
   Car.list(function(err, cars) {
     if (err) throw err
-      console.log(cars[0].toJSON())
     app.cars.reset(cars)
     done.render('cars')
   })
