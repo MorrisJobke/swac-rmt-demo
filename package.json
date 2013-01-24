@@ -3,7 +3,7 @@
     "email": "morris.jobke@gmail.com", 
     "name": "Morris Jobke"
   }, 
-  "bugs": "https://github.com/kabum/arkansas-rmt-demo/issues", 
+  "bugs": "https://github.com/kabum/swac-rmt-demo/issues", 
   "contributors": [
     {
       "email": "npm.m@rkusa.st", 
@@ -11,19 +11,19 @@
     }
   ], 
   "dependencies": {
-    "arkansas": "git+ssh://git@github.com:rkusa/arkansas.git", 
-    "arkansas-rmt": "git+https://github.com/kabum/arkansas-rmt.git", 
+    "swac": "git+ssh://git@github.com:rkusa/swac.git", 
+    "swac-rmt": "git+https://github.com/kabum/swac-rmt.git", 
     "bootstrap": "git://github.com/twitter/bootstrap.git#v2.2.2", 
     "less-middleware": "*",
     "async": "0.1.x"
   }, 
-  "homepage": "https://github.com/kabum/arkansas-rmt-demo", 
+  "homepage": "https://github.com/kabum/swac-rmt-demo", 
   "main": "lib/", 
-  "name": "arkansas-rmt-demo", 
+  "name": "swac-rmt-demo", 
   "private": true, 
   "repository": {
     "type": "git", 
-    "url": "git://github.com/kabum/arkansas-rmt-demo.git"
+    "url": "git://github.com/kabum/swac-rmt-demo.git"
   }, 
   "scripts": {
     "test": "mocha"

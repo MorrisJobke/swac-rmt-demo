@@ -1,6 +1,6 @@
-var arkansas = require('arkansas')
-  , Engine   = require('./engine')
-module.exports = arkansas.Model.define('Vehicle', function() {
+var swac   = require('swac')
+  , Engine = require('./engine')
+module.exports = swac.Model.define('Vehicle', function() {
   this.use('rmt', { db: 'postgre' }, function() {
     this.composes(Engine)
   })

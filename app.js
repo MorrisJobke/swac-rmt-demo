@@ -1,10 +1,10 @@
-var arkansas  = require('arkansas')
+var swac  = require('swac')
   , Vehilce   = require('./models/vehicle')
   , Engine    = require('./models/engine')
   , Car       = require('./models/car')
 
-var root = arkansas.get('/', function(app, done) {
-  app.register('engines', arkansas.Observable.Array(Engine))
+var root = swac.get('/', function(app, done) {
+  app.register('engines', swac.Observable.Array(Engine))
   Engine.list(function(err, engines) {
     if (err) throw err
     app.engines.reset(engines)
@@ -25,7 +25,7 @@ engines.post(function(app, done, params, body) {
 })
 
 var vehicles = root.get('/vehicles', function(app, done) {
-  app.register('vehicles', arkansas.Observable.Array(Vehilce))
+  app.register('vehicles', swac.Observable.Array(Vehilce))
   Vehilce.list(function(err, vehicles) {
     if (err) throw err
     app.vehicles.reset(vehicles)
@@ -42,7 +42,7 @@ vehicles.post(function(app, done, params, body) {
 })
 
 var cars = root.get('/cars', function(app, done) {
-  app.register('cars', arkansas.Observable.Array(Car))
+  app.register('cars', swac.Observable.Array(Car))
   Car.list(function(err, cars) {
     if (err) throw err
     app.cars.reset(cars)

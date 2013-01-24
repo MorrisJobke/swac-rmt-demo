@@ -1,7 +1,7 @@
-var arkansas = require('arkansas/server')
+var swac = require('swac/server')
   , domain = require('domain')
-  , app = arkansas.app
-  , express = arkansas.express
+  , app = swac.app
+  , express = swac.express
  
 app.configure(function() {
   app.enable('trust proxy')
@@ -12,7 +12,7 @@ app.configure(function() {
   app.use(express.static(__dirname + '/assets'))
   app.use(express.bodyParser())
   app.use(express.methodOverride())
-  app.use(arkansas.middleware)
+  app.use(swac.middleware)
 })
 
 app.configure('development', function() {
@@ -20,11 +20,11 @@ app.configure('development', function() {
   app.use(express.logger('dev'))
 })
 
-require('arkansas-rmt').boostrap(function() {
-  arkansas.area(__dirname + '/app', { layout: 'layout' })
+require('swac-rmt').boostrap(function() {
+  swac.area(__dirname + '/app', { layout: 'layout' })
   var server = module.exports = require('http').createServer(app)
 
-  arkansas.ready(function() {
+  swac.ready(function() {
     server.listen(app.get('port'), function() {
       console.log("Express server listening on port " + app.get('port'))
     })
