@@ -32,8 +32,8 @@
             <tr>
               <td>@vehicle.id</td>
               <td>@vehicle.manufacturer</td>
-              <td>@vehicle.engine.id</td>
-              <td>@vehicle.engine.power</td>
+              <td>@(vehicle.engine ? car.engine.id : '')</td>
+              <td>@(vehicle.engine ? car.engine.power : '')</td>
             </tr>
           })
         </tbody>
