@@ -1,32 +1,32 @@
 {
+  "name": "swac-rmt-demo",
+  "private": true,
   "author": {
     "email": "morris.jobke@gmail.com", 
     "name": "Morris Jobke"
-  }, 
-  "bugs": "https://github.com/kabum/swac-rmt-demo/issues", 
+  },
   "contributors": [
     {
       "email": "npm.m@rkusa.st", 
       "name": "Markus Ast"
     }
-  ], 
+  ],
+  "version": "0.1.0",
+  "main": "server.js",
+  "homepage": "https://github.com/kabum/swac-rmt-demo",
   "dependencies": {
     "swac": "git+ssh://git@github.com:rkusa/swac.git", 
     "swac-rmt": "git+https://github.com/kabum/swac-rmt.git", 
     "bootstrap": "git://github.com/twitter/bootstrap.git#v2.2.2", 
     "less-middleware": "*",
     "async": "0.1.x"
-  }, 
-  "homepage": "https://github.com/kabum/swac-rmt-demo", 
-  "main": "lib/", 
-  "name": "swac-rmt-demo", 
-  "private": true, 
+  },
+  "bugs": "https://github.com/kabum/swac-rmt-demo/issues", 
   "repository": {
     "type": "git", 
     "url": "git://github.com/kabum/swac-rmt-demo.git"
-  }, 
-  "scripts": {
-    "test": "mocha"
-  }, 
-  "version": "0.1.0"
+  },
+  "engines": {
+    "node": ">=0.8"
+  }
 }
