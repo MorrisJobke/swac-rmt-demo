@@ -1,14 +1,20 @@
 var swac  = require('swac')
   , Vehilce   = require('./models/vehicle')
   , Engine    = require('./models/engine')
+  , Wheel     = require('./models/wheel')
   , Car       = require('./models/car')
 
 var root = swac.get('/', function(app, done) {
   app.register('engines', swac.Observable.Array(Engine))
+  app.register('wheels', swac.Observable.Array(Wheel))
   Engine.list(function(err, engines) {
     if (err) throw err
     app.engines.reset(engines)
-    done.render('index')
+    Wheel.list(function(err, wheels) {
+      if (err) throw err
+      app.wheels.reset(wheels)
+      done.render('index')
+    })
   })
 })
 
@@ -20,6 +26,18 @@ engines.post(function(app, done, params, body) {
   var engine = new Engine(body)
   app.engines.add(engine)
   engine.save(function() {
+    done()
+  })
+})
+
+var wheels = root.get('/wheels', function(app, done) {
+  done.render('wheels')
+})
+
+wheels.post(function(app, done, params, body) {
+  var wheel = new Wheel(body)
+  app.wheels.add(wheel)
+  wheel.save(function() {
     done()
   })
 })

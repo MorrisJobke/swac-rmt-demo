@@ -9,6 +9,12 @@
             <option value="@engine.id">@engine.id</option>
           })
         </select>&nbsp;
+        <label for="wheel">Rad:&nbsp;</label>
+        <select name="wheel" id="wheel" class="input-small">
+          @wheels.forEach(function(wheel) {
+            <option value="@wheel.id">@wheel.id</option>
+          })
+        </select>&nbsp;
         <button type="submit" class="btn">Erstellen</button>
       </form>
     </div>
@@ -21,10 +27,13 @@
             <th rowspan="2">Id</th>
             <th rowspan="2">Hersteller</th>
             <th colspan="2">Motor</th>
+            <th colspan="2">Rad</th>
           </tr>
           <tr>
             <th>Id</th>
             <th>Leistung</th>
+            <th>Id</th>
+            <th>Durchmesser</th>
           </tr>
         </thead>
         <tbody>
@@ -34,6 +43,8 @@
               <td>@vehicle.manufacturer</td>
               <td>@(vehicle.engine ? car.engine.id : '')</td>
               <td>@(vehicle.engine ? car.engine.power : '')</td>
+              <td>@(vehicle.wheel ? car.wheel.id : '')</td>
+              <td>@(vehicle.wheel ? car.wheel.diameter : '')</td>
             </tr>
           })
         </tbody>

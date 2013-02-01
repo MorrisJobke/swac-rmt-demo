@@ -1,0 +1,30 @@
+@area('main', function() {
+  <div class="row">
+    <div class="well">
+      <form class="form-inline" style="margin:0;" method="post" action="">
+        <input type="text" placeholder="Durchmesser" name="diameter" />&nbsp;
+        <button type="submit" class="btn">Erstellen</button>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Durchmesser</th>
+          </tr>
+        </thead>
+        <tbody>
+          @collection(wheels, function(wheel) {
+            <tr>
+              <td>@wheel.id</td>
+              <td>@wheel.diameter</td>
+            </tr>
+          })
+        </tbody>
+      </table>
+    </div>
+  </div>
+})
