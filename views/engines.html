@@ -14,6 +14,7 @@
           <tr>
             <th>Id</th>
             <th>Leistung</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -21,6 +22,12 @@
             <tr>
               <td>@engine.id</td>
               <td>@engine.power</td>
+              <td>
+                <form action="/engines/@engine.id" method="post">
+                  <input type="hidden" name="_method" value="delete" />
+                  <button type="submit" class="close">&times;</button>
+                </form>
+              </td>
             </tr>
           })
         </tbody>

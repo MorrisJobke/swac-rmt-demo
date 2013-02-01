@@ -28,6 +28,7 @@
             <th rowspan="2">Hersteller</th>
             <th colspan="2">Motor</th>
             <th colspan="2">Rad</th>
+            <th rowspan="2"></th>
           </tr>
           <tr>
             <th>Id</th>
@@ -41,10 +42,16 @@
             <tr>
               <td>@vehicle.id</td>
               <td>@vehicle.manufacturer</td>
-              <td>@(vehicle.engine ? car.engine.id : '')</td>
-              <td>@(vehicle.engine ? car.engine.power : '')</td>
-              <td>@(vehicle.wheel ? car.wheel.id : '')</td>
-              <td>@(vehicle.wheel ? car.wheel.diameter : '')</td>
+              <td>@(vehicle.engine ? vehicle.engine.id : '')</td>
+              <td>@(vehicle.engine ? vehicle.engine.power : '')</td>
+              <td>@(vehicle.wheel ? vehicle.wheel.id : '')</td>
+              <td>@(vehicle.wheel ? vehicle.wheel.diameter : '')</td>
+              <td>
+                <form action="/vehicles/@vehicle.id" method="post">
+                  <input type="hidden" name="_method" value="delete" />
+                  <button type="submit" class="close">&times;</button>
+                </form>
+              </td>
             </tr>
           })
         </tbody>

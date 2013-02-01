@@ -14,6 +14,7 @@
           <tr>
             <th>Id</th>
             <th>Durchmesser</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -21,6 +22,12 @@
             <tr>
               <td>@wheel.id</td>
               <td>@wheel.diameter</td>
+              <td>
+                <form action="/wheels/@wheel.id" method="post">
+                  <input type="hidden" name="_method" value="delete" />
+                  <button type="submit" class="close">&times;</button>
+                </form>
+              </td>
             </tr>
           })
         </tbody>

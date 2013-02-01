@@ -1,5 +1,16 @@
-var swac  = require('swac')
-  , Vehilce   = require('./models/vehicle')
+var swac      = require('swac')
+// Compatibility-related Workaround
+var API       = require('./node_modules/swac/lib/adapter/ajax').API
+API.prototype.createModel = function(data) {
+  var instance = new this.model()
+  Object.keys(data).forEach(function(key) {
+    instance[key] = data[key]
+  })
+  instance.isNew = false
+  return instance
+}
+
+var Vehicle   = require('./models/vehicle')
   , Engine    = require('./models/engine')
   , Wheel     = require('./models/wheel')
   , Car       = require('./models/car')
@@ -30,6 +41,13 @@ engines.post(function(app, done, params, body) {
   })
 })
 
+engines.delete('/:id', function(app, done, params) {
+  var engine = app.engines.find(params.id)
+  engine.destroy(function() {
+    done.redirect('/engines', { silent: true })
+  })
+})
+
 var wheels = root.get('/wheels', function(app, done) {
   done.render('wheels')
 })
@@ -42,9 +60,16 @@ wheels.post(function(app, done, params, body) {
   })
 })
 
+wheels.delete('/:id', function(app, done, params) {
+  var wheel = app.wheels.find(params.id)
+  wheel.destroy(function() {
+    done.redirect('/wheels', { silent: true })
+  })
+})
+
 var vehicles = root.get('/vehicles', function(app, done) {
-  app.register('vehicles', swac.Observable.Array(Vehilce))
-  Vehilce.list(function(err, vehicles) {
+  app.register('vehicles', swac.Observable.Array(Vehicle))
+  Vehicle.list(function(err, vehicles) {
     if (err) throw err
     app.vehicles.reset(vehicles)
     done.render('vehicles')
@@ -52,10 +77,17 @@ var vehicles = root.get('/vehicles', function(app, done) {
 })
 
 vehicles.post(function(app, done, params, body) {
-  var vehicle = new Vehilce(body)
-  app.vehicles.add(vehicle)
-  vehicle.save(function() {
+  Vehicle.post(body, function(err, vehicle) {
+    if (err) throw err
+    app.vehicles.push(vehicle)
     done()
+  })
+})
+
+vehicles.delete('/:id', function(app, done, params) {
+  var vehicle = app.vehicles.find(params.id)
+  vehicle.destroy(function() {
+    done.redirect('/vehicles', { silent: true })
   })
 })
 
@@ -69,10 +101,16 @@ var cars = root.get('/cars', function(app, done) {
 })
 
 cars.post(function(app, done, params, body) {
-  var car = new Car(body)
-  car.manufacturer = body.manufacturer
-  app.cars.add(car)
-  car.save(function() {
+  Car.post(body, function(err, car) {
+    if (err) throw err
+    app.cars.push(car)
     done()
+  })
+})
+
+cars.delete('/:id', function(app, done, params) {
+  var car = app.cars.find(params.id)
+  car.destroy(function() {
+    done.redirect('/cars', { silent: true })
   })
 })
